@@ -1,0 +1,12 @@
+#include<stdio.h>
+
+int main()
+{
+  printf("%i", sizeof(short));
+  printf("%i", sizeof(char));
+  printf("%i", sizeof(int));
+  printf("%i", sizeof(float));
+  printf("%i", sizeof(double));
+  
+  return 0;
+}
