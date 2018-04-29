@@ -1,0 +1,234 @@
+// 09 января Сергей Градович
+// Если в имени переменной нужно несколько слов, мы будем использовать Camel Case - 
+// верблюжья нотация OneTwoThree - новое слово с большой буквы
+// Новые типы данных пишем с большой буквы ( например enum )
+// Пишем понятные имена для переменных
+// Каждая переменная с новой строки
+// Если мы находимся в рамках main то для выхода из программы лучше использовать
+// return с кодом 1 или другим
+// exit используем при выходе из другой функции
+// активнее используем константы если переменные в ходе программы не меняются 
+// rllevel - 36 минута
+// чтобы просмотреть список enumа, подводим курсор к его имени , вводим ctrl+пробел
+// и студия показывает все определения
+//
+#include<stdio.h>
+#include<locale.h>
+//#include<conio.h>
+enum Color
+{
+	Undefined, // есть такой подход в enum когда мы добавляем цвета в enum(75min)
+	Red,       // ставим два дополнительных цвета в начало и в конец списка и потом 
+	Green,     // сколько бы ни добавили нужные начинаются с 1 а по последнему мы 
+	Blue,      // можем определить сколько у нас всего цветов
+	Count
+
+};
+int main()
+{
+	
+	setlocale(LC_ALL, "rus");
+	enum Color colorFromUser;
+	printf("Please enter color\n");
+	scanf("%i", &colorFromUser);
+	if (colorFromUser < Red || colorFromUser > Blue)
+	{
+		printf("color is incorrect\n");
+		system("pause");
+		//getch();
+		return 1;
+	}
+	switch (colorFromUser)
+	{
+	case Red:
+		printf("color: Red\n");
+		break;
+	case Green:
+		printf("color: Green\n");
+		break;
+	case Blue:
+		printf("color: Blue\n");
+		break;
+	/*default:
+		printf("Нет такого цвета\n");
+		break;*/
+	}
+	//getch();
+	system("pause");
+	return 0;	
+}
+
+
+******************************************************
+
+#include<stdio.h>
+//#include<locale.h>
+enum CarActions
+{
+	Stop = 1,
+	Start,
+	Go
+};
+int main()
+{
+	//setlocale(LC_ALL, "rus");
+	enum CarActions carState = Stop;
+	printf("Car is stopped.\n");
+
+	enum CarAction userAction;
+	printf("1 - stop\n");
+	printf("2 - start\n");
+	printf("3 - go\n");
+	printf("Please enter your action: ");
+	scanf("%i", &userAction);
+
+	/*if (carState == Stop && userAction == Start)
+	{
+		carState = Start;
+		printf(" Car is started.\n");
+	}
+	else if (carState == Stop && userAction == Stop)
+	{
+		carState = Stop;
+		printf("Car is stopped.\n");
+	}
+	else if (carState == Stop && userAction == Go)
+	{
+		carState = Stop;
+		printf("Error!!! First you need to start the car.\n");
+	}
+
+
+	printf("Please enter your action: ");
+	scanf("%i", &userAction);
+
+	if (carState == Start && userAction == Go)
+	{
+		carState = Go;
+		printf("Car is running.\n");
+	}
+	else if (carState == Start && userAction == Stop)
+	{
+		carState = Stop;
+		printf("Car is stopped.\n");
+	}
+	else
+	{
+		carState = Go;
+		printf("Car is running.\n");
+	}
+
+
+	printf("Please enter your action: ");
+	scanf("%i", &userAction);
+
+	if (carState == Go && userAction == Stop)
+	{
+		carState = Stop;
+		printf("Car is stopped.\n");
+	}*/
+
+
+	switch (carState)
+	{
+	case Stop:
+		printf("Car is stopped.\n");
+		printf("Please enter your action: ");
+		scanf("%i", &userAction);
+		switch (userAction)
+		{
+		case Start:
+			carState = Start;
+			printf(" Car is started.\n");
+			break;
+		case Stop:
+			carState = Stop;
+			printf(" Car is stopped.\n");
+			break;
+		case Go:
+			carState = Stop;
+			printf("Error!!! First you need to start the car.\n");
+			break;
+		default:
+			printf("this option is not available\n");
+			break;
+		}
+		break;
+	case Start:
+		printf("Car is started.\n");
+		printf("Please enter your action: ");
+		scanf("%i", &userAction);
+		switch (userAction)
+		{
+		case Start:
+			carState = Start;
+			printf(" Car is started.\n");
+			break;
+		case Stop:
+			carState = Stop;
+			printf(" Car is stopped.\n");
+			break;
+		case Go:
+			carState = Go;
+			printf("Car is running.\n");
+			break;
+		default:
+			printf("this option is not available\n");
+			break;
+		}
+		break;
+	case Go:
+		printf("Car is started.\n");
+		printf("Please enter your action: ");
+		scanf("%i", &userAction);
+		switch (userAction)
+		{
+		case Start:
+			carState = Go;
+			printf(" Car is started.\n");
+			break;
+		case Stop:
+			carState = Stop;
+			printf(" Car is stopped.\n");
+			break;
+		case Go:
+			carState = Go;
+			printf("Car is running.\n");
+			break;
+		default:
+			printf("this option is not available\n");
+			break;
+		}
+		break;
+	default:
+		printf("Please try again\n");
+		break;
+	}
+
+	system("pause");
+	return 0;
+}
+
+// можно использовать enum вместо Bool
+
+enum My Bool
+{
+	False,
+	True
+};
+
+int main()
+{
+	enum My Bool val = True;
+	
+	if (val = True)
+	{		
+	}
+	else if (val = False)
+}
+
+
+
+
+
+
