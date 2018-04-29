@@ -1,0 +1,29 @@
+include<stdio.h> //заголовочный файл стандартного ввода - вывода
+int main()     //пусть main всегда возвращает целочисленное значение
+{
+	int a;     //переменные всегда пишем с маленькой буквы и даем им понятные
+	           //  названия
+	float const var = 5.5; // const пишем справа от типа переменной и сразу
+	                       // ее инициализируем значением
+	return 0;
+}
+#include<stdio.h>
+#include<stdbool.h>
+#include<locale.h>
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	unsigned char const userHour = 20;
+	unsigned char const userMinute = 59;
+	int const userTimeMinutes = userHour * 60 + userMinute;
+	int const nightBeginMinutes = 21 * 60;
+	int const nightEndMinutes = 6 * 60;
+	printf("Пользовательское время : %i: %i\n", userHour, userMinute);
+	printf("Current day period :%s", (userHour > nightEndMinutes - 1 &&
+		userTimeMinutes < nightBeginMinutes) ? "day" : "night");
+	
+	return 0;
+}
+
+
