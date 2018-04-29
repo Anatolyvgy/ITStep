@@ -1,0 +1,58 @@
+//Если ругается на то что scanf не безопасная - отключить проверку SDL в 
+// свойствах проекта
+
+//Логические операторы и выражения
+
+// Игра угадай число
+#include<stdio.h>
+#include<time.h>
+#include<locale.h>
+int main()
+{
+
+	//printf("Time: %i\n", time (0));
+	setlocale(LC_ALL, "rus");
+	srand(time(0));
+	int attempt_count = 0; //счетчик попыток
+	int computerNumber = (rand() % 10) + 1;//загаданное число от 1 до 10
+	int usernumber = 0;
+	printf("Компьютер загадал число от 1 до 10\n");
+	printf("Попробуйте отгадать его с 5 попыток\n");
+	for (int a = 0; a < 5; a++)
+	{
+		scanf("%i", &usernumber);
+		if (usernumber > computerNumber)
+		{
+			printf("Загаданное число меньше\n");
+			++attempt_count;
+			continue;
+		}
+		else
+			if (usernumber < computerNumber)
+			{
+				printf("Загаданное число больше\n");
+				++attempt_count;
+				continue;
+			}
+			else
+				if (usernumber == computerNumber)
+				{
+					printf("Вы угадали с %i попыток\n", ++attempt_count);
+					break;
+				}
+
+
+	}
+	if (usernumber != computerNumber)
+		{	
+			printf("Вы проиграли, очень жаль\n");
+			printf("Правильное число %i\n", computerNumber);
+		}
+	else
+		printf("Вы выйграли!!!\n");
+
+
+
+	return 0;
+}
+
