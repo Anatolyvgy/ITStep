@@ -1,0 +1,253 @@
+// циклы do...while, for
+// 2.10.00
+#include<stdio.h>
+#include<locale.h>
+//#include<stdlib.h>
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	char ch = 0;
+	printf("Введите символ \n");
+	scanf("%c", &ch);
+	if (ch == ',' || ch == '.' || ch == ';')
+	{
+		printf(" Это знак препинания \n");
+	}
+
+	if (ch >= 'A' && ch <= 'Z')
+	{
+		printf(" Это заглавная латинская буква \n");
+	}
+	
+	if (ch >= 'a' && ch <= 'z')
+	{
+		printf(" Это строчная латинская буква \n");
+	}	
+
+	if (ch >= '0' && ch <= '9')
+	{
+		printf(" Это цифра \n");
+	}
+
+	/*int a = 0;
+	while (a < 256)
+	{
+		printf("%d соответствует %c\n", a, a);
+		a++;
+	}*/	
+	return 0;
+}
+
+\\******************************************************************
+
+#include<stdio.h>
+#include<locale.h>
+enum Wedding
+{
+	Calico = 1, //ситцевая 1 год
+	Paper,      //бумажная 2 года     
+	Leather,    //кожаная 3 года
+	Linen,      //льняная 4 года
+	Wooden,     //деревянная 5 лет
+	Iron,       //чугунная 6 лет
+	Copper,     //медная 7 лет
+	Tinny,      //жестяная 8 лет
+	Porceline,  //фаянсовая 9 лет
+	Pewter,     //оловянная 10 лет
+	Still,      //стальная 11 лет
+	Nickel,     //никелевая 12 лет
+	Lace,       //кружевная 13 лет
+	Agate,      //агатовая 14 лет
+	Crystal,    //кристальная 15 лет
+	Topaz,      //топазовая 16 лет
+};
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	
+	enum  Wedding Wedding_anniversary;
+	printf("Введите количество совместно прожитых лет: ");
+	scanf("%d", &Wedding_anniversary);
+	switch (Wedding_anniversary)
+	{
+	case Calico:
+		printf("Это ситцевая свадьба \n");
+		break;
+	case Paper:
+		printf("Это бумажная свадьба \n");
+		break;
+	case Leather:
+		printf("Это кожаная свадьба \n");
+		break;
+	case Linen:
+		printf("Это льняная свадьба \n");
+		break;
+	case Wooden:
+		printf("Это деревянная свадьба \n");
+		break;
+	case Iron:
+		printf("Это чугунная свадьба \n");
+		break;
+	case Copper:
+		printf("Это медная свадьба \n");
+		break;
+	case Tinny:
+		printf("Это жестяная свадьба \n");
+		break;
+	case Porceline:
+		printf("Это фаянсовая свадьба \n");
+		break;
+	case Pewter:
+		printf("Это оловянная свадьба \n");
+		break;
+	case Still:
+		printf("Это стальная свадьба \n");
+		break;
+	case Nickel:
+		printf("Это никелевая свадьба \n");
+		break;
+	case Lace:
+		printf("Это кружевная свадьба \n");
+		break;
+	case Agate:
+		printf("Это агатовая свадьба \n");
+		break;
+	case Crystal:
+		printf("Это кристальная свадьба \n");
+		break;
+	case Topaz:
+		printf("Это топазовая свадьба \n");
+		break;
+	default:
+		printf("Этот год не является юбилейным \n");
+		break;
+	}
+	return 0;
+}
+
+
+//*************************  do while  ********************************
+
+#include<stdio.h>
+#include<locale.h>
+int main()
+{
+	setlocale(LC_ALL, "rus");
+
+	int x;
+	do                                        //сначала вводим значение
+	{
+		printf("Введите число от 0 до 9: \n");
+		scanf("%d", &x);
+	} while (x < 0 || x > 9);                //а теперь идет проверка. Здесь while отдельный
+	                                         //оператор и после него нужна ;
+	printf("Число правильное, спасибо!\n");
+	
+	system("pause");
+	return 0;
+}
+
+//*****************************  for  ***********************************
+// 2.20.00
+#include<stdio.h>
+#include<locale.h>
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	for (int i = 0; i < 10; i++)//i - по умолчанию название для управляющей переменной в for
+	{
+		printf("%i\n", i);
+	}	
+	//system("pause");
+	return 0;
+}
+
+***********************
+
+#include<stdio.h>
+int main()
+{	
+	int row = 6;    //количество строк
+	int column = 6; //количество столбцов 
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < column; j++)
+		{
+			if (i == 0 || i == row - 1 ||
+				j == 0 || j == column - 1)
+			{
+				printf("*");
+			}
+			else
+			{
+				printf("-");
+			}
+		}
+		printf("\n");
+	}	
+	//system("pause");
+	return 0;
+}
+
+*************************
+
+#include<stdio.h>
+int main()
+{	
+	int row_Count = 6;
+	int column_Count = 6;
+	for (int row = 0; row < row_Count; row++)
+	{
+		for (int column = 0; column < column_Count; column++)
+		{
+			if (row == 0 || row == row_Count - 1 ||
+				column == 0 || column == column_Count - 1)
+			{
+				printf("*");
+			}
+			else
+			{
+				printf(" ");
+			}
+		}
+		printf("\n");
+	}	
+	//system("pause");
+	return 0;
+}
+
+************************************************
+
+#include<stdio.h>
+#include<locale.h>
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int row = 0;    //количество строк(12)
+	int column = 0; //количество столбцов(20) на квадрат
+	printf("Введите количество строк: \n");
+	scanf("%d", &row);
+	printf("Введите количество столбцов:\n");
+	scanf("%d", &column);
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < column; j++)
+		{
+			if (i == 0 || i == row - 1 ||
+				j == 0 || j == column - 1)
+			{
+				printf("*");
+			}
+			else
+			{
+				printf(" ");
+			}
+		}
+		printf("\n");
+	}
+	//system("pause");
+	return 0;
+}
+
